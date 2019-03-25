@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>人员信息编辑</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <form action="PersonEdit.ashx" method="post">
+
+        <!--注意这里的重点是这里两个隐藏域的使用：action和save的值不同会产生四种情况-->
+        <input type="hidden" name="Action" value="AddNew" />
+        <input type="hidden" name="Save" value="true" />
+        <table>
+            <tr>
+                <td>姓名：</td>
+                <td><input type="text" name="Name" /></td>
+            </tr>
+            <tr>
+                <td>年龄：</td>
+                <td><input type="text" name="Age" /></td>
+            </tr>
+            <tr>
+                <td>邮箱：</td>
+                <td><input type="text" name="Email" value="$Date.Email" /></td>
+            </tr>
+            <tr>
+                <td>姓名：</td>
+                <td><input type="submit" name="保存" /></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

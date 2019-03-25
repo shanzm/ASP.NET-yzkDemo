@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>人员列表</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>姓名</td>
+                <td>年龄</td>
+                <td>邮箱</td>
+            </tr>
+        </thead>
+        #foreach($person in $Date)
+        <!--注意这里的person就是一行，DateTable中的行是可以使用列名索引具体每行的各个单元格的值-->
+        <!--其实就展现了NVelocity模版引擎的便利，我们不管你的数据是从哪来的，可以是从数据库来的，也可以是从xml来的，反正我们就在遍历就行了-->
+        <tbody>
+            <tr>
+                <td>$person.Name</td>
+                <td>$person.Age</td>
+                <td>$person.Email</td>
+            </tr>
+        </tbody>
+        #end
+    </table>
+    <a href="../PersonEdit.ashx?action=AddNew">新增人员</a>
+    <!--注意连接到ashx页面而不是html页面-->
+    <!--注意我们给了一个默认参数action=AddNew-->
+</body>
+</html>
