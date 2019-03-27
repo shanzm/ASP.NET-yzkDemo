@@ -1,31 +1,53 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>人员信息编辑</title>
+    <title>
+        <!--因为这个页面我们既要实现添加新用户的功能也要实现修改用户的功能，所以哦我们在这里做一个判断，来显示不同的标题-->
+        #if($Data.Action=="AddNew")
+        新增用户
+        #else
+        修改用户$Data.Person.Name
+        #end
+    </title>
     <meta charset="utf-8" />
 </head>
 <body>
     <form action="PersonEdit.ashx" method="post">
 
         <!--注意这里的重点是这里两个隐藏域的使用：action和save的值不同会产生四种情况-->
-        <input type="hidden" name="Action" value="AddNew" />
+        <input type="hidden" name="Action" value="$Data.Action" />
         <input type="hidden" name="Save" value="true" />
+        #*
+        <!--注意隐藏域：
+           Id值是不需要显示在页面的，但是在修改选中的人员信息的时候需要Id值，所以放在这里，
+           当然我们也可以使用#if语句做一个判断，若是action=Edit则显示,如下-->
+        <!--
+            #if($Data.Action=="Edit")
+            <input type="hidden" name="Id" value="$Data.Person.Id" />
+            #end
+         -->*#
+
+        <input type="hidden" name="Id" value="$Data.Person.Id" />
+       
+      
+
         <table>
             <tr>
                 <td>姓名：</td>
-                <td><input type="text" name="Name" /></td>
+                <td><input type="text" name="Name" value="$Data.Person.Name" /></td>
             </tr>
             <tr>
                 <td>年龄：</td>
-                <td><input type="text" name="Age" /></td>
+                <td><input type="text" name="Age" value="$Data.Person.Age" /></td>
             </tr>
             <tr>
                 <td>邮箱：</td>
-                <td><input type="text" name="Email" value="$Date.Email" /></td>
+                <td><input type="text" name="Email" value="$Data.Person.Email" /></td>
             </tr>
             <tr>
-                <td>姓名：</td>
+                <td>提交：</td>
                 <td><input type="submit" name="保存" /></td>
             </tr>
         </table>

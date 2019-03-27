@@ -12,9 +12,10 @@
                 <td>姓名</td>
                 <td>年龄</td>
                 <td>邮箱</td>
+                <td>编辑</td>
             </tr>
         </thead>
-        #foreach($person in $Date)
+        #foreach($person in $Data)
         <!--注意这里的person就是一行，DateTable中的行是可以使用列名索引具体每行的各个单元格的值-->
         <!--其实就展现了NVelocity模版引擎的便利，我们不管你的数据是从哪来的，可以是从数据库来的，也可以是从xml来的，反正我们就在遍历就行了-->
         <tbody>
@@ -22,6 +23,8 @@
                 <td>$person.Name</td>
                 <td>$person.Age</td>
                 <td>$person.Email</td>
+                <td><a href="PersonEdit.ashx?action=Edit&Id=$person.Id">编辑</a></td>
+                <td><a href="PersonDelete.ashx?Id=$person.Id">删除</a></td>
             </tr>
         </tbody>
         #end
