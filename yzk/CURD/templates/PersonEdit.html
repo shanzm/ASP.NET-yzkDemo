@@ -27,11 +27,12 @@
             #if($Data.Action=="Edit")
             <input type="hidden" name="Id" value="$Data.Person.Id" />
             #end
-         -->*#
+         -->
+        *#
 
         <input type="hidden" name="Id" value="$Data.Person.Id" />
-       
-      
+
+
 
         <table>
             <tr>
@@ -45,6 +46,20 @@
             <tr>
                 <td>邮箱：</td>
                 <td><input type="text" name="Email" value="$Data.Person.Email" /></td>
+            </tr>
+            <tr>
+                <td>班级：</td>
+                <td>
+                    <select name="ClassId">
+                        #foreach($class in $Data.Classes)
+                        #if($class.Id==$Data.Person.ClassId)
+                        <option value="$class.Id" selected>$class.Name</option>#*<!--这是为了实现点击编辑按钮后展示的页面：遍历所有的编班级选项的时候，若是与数据库查询的Person表的ClassId相一致，则选中-->*#
+                        #else
+                        <option value="$class.Id">$class.Name</option>
+                        #end
+                        #end
+                    </select>
+                </td>
             </tr>
             <tr>
                 <td>提交：</td>

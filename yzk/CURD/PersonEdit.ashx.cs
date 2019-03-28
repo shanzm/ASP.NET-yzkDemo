@@ -37,13 +37,15 @@ namespace CURD
                     string Name = context.Request["Name"];
                     int Age = Convert.ToInt16(context.Request["Age"]);
                     string Email = context.Request["Email"];
+                    long ClassId = Convert.ToInt64(context.Request["ClassId"]);
 
-                    string sql = "insert into T_Person (Name,Age,Email) values(@Name,@Age,@Email); ";
+                    string sql = "insert into T_Person (Name,Age,Email,ClassId) values(@Name,@Age,@Email,@ClassId); ";
                     SqlParameter[] param =
                     {
                         new SqlParameter ("@Name",Name),
                         new SqlParameter("@Age", Age),
-                        new SqlParameter ("@Email",Email )
+                        new SqlParameter ("@Email",Email ),
+                        new SqlParameter("@ClassId",ClassId )
                     };
                     SqlHelper.ExecuteNonquery(sql, CommandType.Text, param);
 
@@ -55,7 +57,9 @@ namespace CURD
                     //context.Response.Write(NVelocityHelper.RenderHtml("PersonEdit.html", new { Action = "AddNew",  Name = "", Age = "", Email = "@qq.com" } ));
                     //按照上面的写法可不可以呢？可以，但是万一我们的表中也有一个叫做“Action”的列，就会混淆。
                     //所以我们把表中的数据都使用一个匿名对象放在一起
-                    context.Response.Write(NVelocityHelper.RenderHtml("PersonEdit.html", new { Action = "AddNew", Person = new { Name = "", Age = "", Email = "@qq.com" } }));
+                    DataTable dtClasses = SqlHelper.GetDataTable("select * from T_Classes", CommandType.Text);
+
+                    context.Response.Write(NVelocityHelper.RenderHtml("PersonEdit.html", new { Action = "AddNew", Person = new { Name = "", Age = "", Email = "@qq.com" }, Classes = dtClasses.Rows }));
                 }
             }
 
@@ -76,15 +80,17 @@ namespace CURD
                     int Age = Convert.ToInt32(context.Request["Age"]);
                     long Id = Convert.ToInt64(context.Request["Id"]);
                     string Email = context.Request["Email"];
+                    long ClassId = Convert.ToInt64(context.Request["ClassId"]);
 
                     SqlParameter[] param =
                         {
                         new SqlParameter("@Name", Name),
                         new SqlParameter("@Age", Age),
                         new SqlParameter("@Email", Email),
-                        new SqlParameter("@Id", Id)
+                        new SqlParameter("@Id", Id),
+                        new SqlParameter("@ClassId",ClassId)
                         };
-                    string sql = "update T_Person set Name=@Name,Age=@Age,Email=@Email where Id=@Id";
+                    string sql = "update T_Person set Name=@Name,Age=@Age,Email=@Email ,ClassId=@ClassId where Id=@Id";
 
                     SqlHelper.ExecuteNonquery(sql, CommandType.Text, param);
 
@@ -96,10 +102,10 @@ namespace CURD
 
                     string sql = "select * from T_Person where Id=@Id";
                     SqlParameter param = new SqlParameter("@Id", Id);
-                    DataTable dt = SqlHelper.GetDataTable(sql, CommandType.Text, param);
+                    DataTable dtPerson = SqlHelper.GetDataTable(sql, CommandType.Text, param);
+                    DataTable dtClasses = SqlHelper.GetDataTable("select * from T_Classes", CommandType.Text);
 
-
-                    context.Response.Write(NVelocityHelper.RenderHtml("PersonEdit.html", new { Action = "Edit", Person = dt.Rows[0] }));
+                    context.Response.Write(NVelocityHelper.RenderHtml("PersonEdit.html", new { Action = "Edit", Person = dtPerson.Rows[0], Classes = dtClasses.Rows }));
                 }
 
             }
