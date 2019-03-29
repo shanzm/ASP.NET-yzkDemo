@@ -1,0 +1,20 @@
+﻿#parse("Head.html")
+<a href="PostMsg.ashx">发表留言</a>
+<ul>
+    #foreach($msg in $Data.Msg)
+    <li>
+        <table>
+            #if($msg.IsAnonymous)
+            <tr><td>昵称：</td><td>匿名用户</td></tr>
+            #else
+            <tr><td>昵称：</td><td>$msg.NickName</td></tr>
+            #end
+            <tr><td>发表日期</td><td>$msg.PostDate</td></tr>
+            <tr><td>IP地址：</td><td>$msg.IPAddress</td></tr>
+            <tr><td colspan="2">$msg.Title</td></tr>
+            <tr><td colspan="2">$msg.Msg</td></tr>
+        </table>
+    </li>
+    #end
+</ul>
+#parse("Foot.html")

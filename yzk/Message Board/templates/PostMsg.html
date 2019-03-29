@@ -1,0 +1,29 @@
+﻿#parse("Head.html")
+<form action="PostMsg.ashx" method="post">
+    <!--<input type="hidden" name="Save" value="true" />用来判断是首次点击这个页面还是点击类submit按钮准备提交，但是之处我们换一种方法，我们给提交按钮一个名字，接收他的值，若是接受到“发表”则说明点击了提交按钮-->
+    <table>
+        <tbody>
+            <tr>
+                <td>昵称：</td>
+                <td><input type="text" name="NickName" /></td>
+            </tr>
+            <tr>
+                <td>匿名</td>
+                <td><input type="checkbox" name="IsAnonymous" /></td>
+            </tr>
+            <tr>
+                <td>标题：</td>
+                <td><input type="text" name="Title" /></td>
+            </tr>
+            <tr>
+                <td>正文：</td>
+                <td><textarea name="Msg" cols="50" rows="50"></textarea></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="发表" name="Save" /> </td>
+            </tr>
+        </tbody>
+    </table>
+</form>
+#parse("Foot.html")
