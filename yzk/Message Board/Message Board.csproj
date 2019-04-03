@@ -62,7 +62,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="PostMsg.html" />
     <Content Include="templates\Head.html" />
     <Content Include="templates\ViewMsg.html" />
     <Content Include="templates\PostMsg.html" />

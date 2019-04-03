@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CURD", "CURD\CURD.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Message Board", "Message Board\Message Board.csproj", "{3D601D42-75FC-494A-94D9-5D4F3A14A944}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewVideo", "ViewVideo\ViewVideo.csproj", "{993F97F5-6CAD-438E-9035-E3245DEEA87F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Register", "Register\Register.csproj", "{D9AC7F6E-C59C-406C-BEAF-B6769E349720}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{3D601D42-75FC-494A-94D9-5D4F3A14A944}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D601D42-75FC-494A-94D9-5D4F3A14A944}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D601D42-75FC-494A-94D9-5D4F3A14A944}.Release|Any CPU.Build.0 = Release|Any CPU
+		{993F97F5-6CAD-438E-9035-E3245DEEA87F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{993F97F5-6CAD-438E-9035-E3245DEEA87F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{993F97F5-6CAD-438E-9035-E3245DEEA87F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{993F97F5-6CAD-438E-9035-E3245DEEA87F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9AC7F6E-C59C-406C-BEAF-B6769E349720}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9AC7F6E-C59C-406C-BEAF-B6769E349720}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9AC7F6E-C59C-406C-BEAF-B6769E349720}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9AC7F6E-C59C-406C-BEAF-B6769E349720}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

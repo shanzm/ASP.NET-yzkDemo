@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="../Js/ajax.js"></script>
+    <script type="text/javascript">
+        function checkUserName() {
+            var userName = document.getElementById("UserName").value;
+            ajax("CheckUserName.ashx?UserName=" + userName,
+                function (resText) {
+                    if (resText == "ok") {
+                        document.getElementById("UserNameMsg").innerHTML = "用户名可用";
+                    }
+                    else if (resText == "error") {
+                        document.getElementById("UserNameMsg").innerHTML = "用户名已经被占用";
+                    }
+                    else if (resText == "forbid") {
+                        document.getElementById("UserNameMsg").innerHTML = "用户名中含有禁用词，请换用其他用户名";
+                    }
+                    else {
+                        alert("服务器返回意外内容：" + resText);
+                    }
+                });
+        }
+    </script>
+</head>
+<body>
+    <!--注意这个demo只是为了展现AJAX的作用，所以没有去在Register.ashx页面接收用户提交的数据。
+
+        注意这个demo的调试顺序：首先Register.ashx读取模版Register.html后给服务器一个登录页面，
+    之后用户输入注册的用户名，之后光标移动到密码栏，触发姓名栏的onblur事件
+    之后运行JavaScript代码 function checkUserName()，
+    之后AJAX程序向URL：“CheckUserName.ashx?Username=用户输入的姓名” 发送请求
+    之后CheckUserName.ashx运行，返回一个我们自己定义的状态码resText，
+    封装的AJAX中的第二个参数function(resText)对状态码resText分析，显示在页面上-->
+
+    <form action="Register.ashx">
+        用户名：<input type="text" id="UserName" name="UserName" onblur="checkUserName()" /><span id="UserNameMsg" style="color:Red"></span>
+        密码：<input type="password" />
+        <input type="submit" value="注册" />
+    </form>
+</body>
+</html>

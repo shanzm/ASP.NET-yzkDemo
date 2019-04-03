@@ -6,4 +6,3 @@ F:\ForGit\ASP.NET-yzkDemo\yzk\CURD\obj\Debug\CURD.dll
 F:\ForGit\ASP.NET-yzkDemo\yzk\CURD\obj\Debug\CURD.pdb
 F:\ForGit\ASP.NET-yzkDemo\yzk\CURD\bin\NVelocity.pdb
 F:\ForGit\ASP.NET-yzkDemo\yzk\CURD\bin\NVelocity.xml
-F:\ForGit\ASP.NET-yzkDemo\yzk\CURD\obj\Debug\CURD.csprojResolveAssemblyReference.cache

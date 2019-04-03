@@ -1,0 +1,9 @@
+F:\ForGit\ASP.NET-yzkDemo\yzk\ViewVideo\obj\Debug\ViewVideo.csprojResolveAssemblyReference.cache
+F:\ForGit\ASP.NET-yzkDemo\yzk\ViewVideo\bin\ViewVideo.dll.config
+F:\ForGit\ASP.NET-yzkDemo\yzk\ViewVideo\bin\ViewVideo.dll
+F:\ForGit\ASP.NET-yzkDemo\yzk\ViewVideo\bin\ViewVideo.pdb
+F:\ForGit\ASP.NET-yzkDemo\yzk\ViewVideo\bin\NVelocity.dll
+F:\ForGit\ASP.NET-yzkDemo\yzk\ViewVideo\bin\NVelocity.pdb
+F:\ForGit\ASP.NET-yzkDemo\yzk\ViewVideo\bin\NVelocity.xml
+F:\ForGit\ASP.NET-yzkDemo\yzk\ViewVideo\obj\Debug\ViewVideo.dll
+F:\ForGit\ASP.NET-yzkDemo\yzk\ViewVideo\obj\Debug\ViewVideo.pdb

@@ -23,7 +23,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace Message_Board
+namespace Register
 {
     public class SqlHelper
     {

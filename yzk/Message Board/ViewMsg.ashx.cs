@@ -4,7 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Web;
 
-namespace Message_Board
+namespace Register
 {
     /// <summary>
     /// ViewMsg 的摘要说明
