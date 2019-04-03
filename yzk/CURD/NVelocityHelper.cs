@@ -21,7 +21,7 @@ namespace CURD
         {
             VelocityEngine vltEngine = new VelocityEngine();
             vltEngine.SetProperty(RuntimeConstants.RESOURCE_LOADER, "file");
-            vltEngine.SetProperty(RuntimeConstants.FILE_RESOURCE_LOADER_PATH, System.Web.Hosting.HostingEnvironment.MapPath("~/templates"));//模板文件所在的文件夹
+            vltEngine.SetProperty(RuntimeConstants.FILE_RESOURCE_LOADER_PATH, System.Web.Hosting.HostingEnvironment.MapPath("~/templates"));//模板文件所在的文件夹(注意~代表模版所在文件夹)
             vltEngine.Init();
 
             VelocityContext vltContext = new VelocityContext();

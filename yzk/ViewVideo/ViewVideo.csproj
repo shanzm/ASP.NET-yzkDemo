@@ -65,7 +65,6 @@
     <Content Include="2.使用AJAX\ViewVideo.html" />
     <Content Include="Js\ajax.js" />
     <Content Include="Web.config" />
-    <Content Include="1.全页面刷新ViewVideo\《富爸爸，穷爸爸》系列作者罗伯特·清崎的采访.mp4" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="1.全页面刷新ViewVideo\NVelocityHelper.cs" />
@@ -81,6 +80,7 @@
   <ItemGroup>
     <Content Include="1.全页面刷新ViewVideo\ViewVideo.ashx" />
     <Content Include="2.使用AJAX\ViewVideo.ashx" />
+    <Content Include="1.全页面刷新ViewVideo\wlwz.webm" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
