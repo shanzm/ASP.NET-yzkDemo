@@ -1,0 +1,6 @@
+F:\ForGit\ASP.NET-yzkDemo\yzk\JSON\obj\Debug\JSON.csprojResolveAssemblyReference.cache
+F:\ForGit\ASP.NET-yzkDemo\yzk\JSON\bin\JSON.dll.config
+F:\ForGit\ASP.NET-yzkDemo\yzk\JSON\bin\JSON.dll
+F:\ForGit\ASP.NET-yzkDemo\yzk\JSON\bin\JSON.pdb
+F:\ForGit\ASP.NET-yzkDemo\yzk\JSON\obj\Debug\JSON.dll
+F:\ForGit\ASP.NET-yzkDemo\yzk\JSON\obj\Debug\JSON.pdb

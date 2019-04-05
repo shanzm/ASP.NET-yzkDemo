@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="../Js/ajax.js"></script>
+    <script type="text/javascript" >
+        function go()
+        {
+           
+            ajax("Json.ashx", function (resText)
+            {
+                alert(resText);
+                var persons = JSON.parse(resText)//注意：一般的新版本浏览器或是Chrome都是支持JSON.parse()函数，若是低版本浏览器没有JSON.parse(),则要引入json2.js。
+                for (var i = 0; i < persons.length; i++)
+                {
+                    alert("姓名:" + persons[i].Name + ";年龄:" + persons[i].Age);
+                }
+
+                
+            });
+        }
+    </script>
+</head>
+<body onload="go()">
+   
+</body>
+
+
+</html>
