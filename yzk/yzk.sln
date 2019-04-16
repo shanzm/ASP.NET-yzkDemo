@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Register", "Register\Regist
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSON", "JSON\JSON.csproj", "{FECA3115-6542-4722-B1F0-DB4F8886AB6C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HuaGongWeb", "HuaGongWeb\HuaGongWeb.csproj", "{373738CE-E2DB-4301-A634-4335BD627D3F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{FECA3115-6542-4722-B1F0-DB4F8886AB6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FECA3115-6542-4722-B1F0-DB4F8886AB6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FECA3115-6542-4722-B1F0-DB4F8886AB6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{373738CE-E2DB-4301-A634-4335BD627D3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{373738CE-E2DB-4301-A634-4335BD627D3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{373738CE-E2DB-4301-A634-4335BD627D3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{373738CE-E2DB-4301-A634-4335BD627D3F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

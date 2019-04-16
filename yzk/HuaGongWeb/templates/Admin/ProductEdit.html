@@ -1,0 +1,67 @@
+﻿#parse("Admin/Head.html")
+<script type="text/javascript" src="../scripts/ckeditor/ckeditor.js"></script><!--富文本编辑器的使用--><!--注意为了方便你自己看到，你把这句引用放在这里，但是应该放在html的头标签中的-->
+
+
+<!--产品名是否为空的判断-->
+<script type="text/javascript"> 
+        function CheckProductName()
+        {
+
+            var productName = document.getElementById("Name").value;
+            function trim(a)
+            {
+                if (typeof a == 'string')
+                {
+                    return a.replace(/\s+/, '');
+                } else
+                {
+                    return a;
+                }
+            }
+
+            var Name = trim(productName);
+
+            if ((typeof productName) == 'string' && Name)//不为空
+            {
+               
+            } else
+            {
+                alert("产品名不能为空");
+            }
+        }
+</script>
+
+<form method="post" action="ProductEdit.ashx" enctype="multipart/form-data"><!--注意一旦有图片等文件（即：只要表单存在<input type="file"...)的上传那就一定是使用post请求方式，同时表单添加enctype="multipart/form-data的属性-->
+    <input type="hidden" name="IsPostBack" value="true" />
+    <input type="hidden" name="Action" value="$Model.Action" />
+    #if($Model.Action=="Edit")
+    <input type="hidden" name="Id" value="$Model.Product.Id" />
+    #end
+  
+    <p>名称：<input type="text" name="Name" id="Name" value="$Model.Product.Name" onblur="CheckProductName()" /></p>
+    <p>
+        分类：<select name="CategoryId">
+            #foreach($c in $Model.Categories)
+            #if($c.Id==$Model.Product.CategoryId)
+            <option value="$c.Id" selected>$c.Name</option>
+            #else
+            <option value="$c.Id">$c.Name</option>
+            #end
+            #end
+        </select>
+    </p>
+    <p>
+        产品图片：<input type="file" name="ProductImage" />
+        #if($Model.Action=="Edit")
+        <img src="$Model.Product.ImagePath" width="50" height="50" />
+        #end
+    </p>
+    <p>产品描述：<textarea id="Msg" name="Msg">$Model.Product.Msg</textarea></p>
+    <script type="text/javascript">
+        /*富文本编辑器的使用*/
+        var msg = document.getElementById("Msg");
+        CKEDITOR.replace(msg);
+    </script>
+    <p><input type="submit" value="保存" /></p>
+</form>
+#parse("Admin/Foot.html")

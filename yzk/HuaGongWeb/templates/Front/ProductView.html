@@ -1,0 +1,73 @@
+﻿#parse("Front/Head.htm")
+<script type="text/javascript" src="scripts/ajax.js"></script>
+<script type="text/javascript">
+    function postComment()
+    {
+        var title = document.getElementById("CommentTitle").value;
+        var msg = document.getElementById("CommentMsg").value;
+        if (title.length <= 0)
+        {
+            alert("请输入评论标题");
+            return;
+        }
+        if (msg.length <= 0)
+        {
+            alert("请输入评论内容");
+            return;
+        }
+        ajax("ProductCommentAJAX.ashx?Action=PostComment&ProductId=$Model.Product.Id&Title=" + title + "&Msg=" + msg, function (txt)
+        {
+            if (txt == "ok")
+            {
+                document.getElementById("CommentTitle").value = '';
+                document.getElementById("CommentMsg").value = '';
+                LoadComments(); //重新加载所有评论
+            }
+            else if (txt == "error")
+            {
+                alert("您提交的数据有错误！");
+            }
+            else
+            {
+                alert("服务器返回未知数据："+txt);
+            }
+        });
+    }
+
+    function LoadComments()
+    {
+        ajax("ProductCommentAJAX.ashx?Action=Load&ProductId=$Model.Product.Id", function (txt)
+        {
+            var comments = JSON.parse(txt);
+            var ulComments = document.getElementById("ulComments");
+            ulComments.innerHTML = "";//先清除上次加载的内容
+            for (var i = 0; i < comments.length; i++)
+            {
+                var comment = comments[i];
+                var li = document.createElement("li");
+                li.innerHTML = comment.CreateDateTime + "|" + comment.Title + "|" + comment.Msg;
+                ulComments.appendChild(li);
+            }
+        });
+    }
+</script>
+<center><h1>$Model.Product.Name</h1></center>
+<p><img src="$Model.Product.ImagePath" height="200" width="200" /></p>
+$Model.Product.Msg
+
+<ul id="ulComments">
+</ul>
+<script type="text/javascript">
+    LoadComments(); 
+</script>
+<p>
+标题：<input type="text" id="CommentTitle" />
+</p>
+<p>
+内容：<textarea rows="5" cols="30" id="CommentMsg" ></textarea>
+</p>
+<p>
+标题：<input type="submit" value="发表评论" onclick="postComment()" />
+</p>
+
+#parse("Front/Foot.htm")

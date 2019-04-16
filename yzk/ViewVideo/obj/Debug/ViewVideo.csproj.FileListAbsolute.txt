@@ -6,3 +6,4 @@ F:\ForGit\ASP.NET-yzkDemo\yzk\ViewVideo\bin\NVelocity.pdb
 F:\ForGit\ASP.NET-yzkDemo\yzk\ViewVideo\bin\NVelocity.xml
 F:\ForGit\ASP.NET-yzkDemo\yzk\ViewVideo\obj\Debug\ViewVideo.dll
 F:\ForGit\ASP.NET-yzkDemo\yzk\ViewVideo\obj\Debug\ViewVideo.pdb
+F:\ForGit\ASP.NET-yzkDemo\yzk\ViewVideo\obj\Debug\ViewVideo.csprojResolveAssemblyReference.cache
