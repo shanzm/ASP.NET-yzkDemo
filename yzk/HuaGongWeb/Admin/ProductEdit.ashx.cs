@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Web;
 
@@ -51,29 +52,46 @@ namespace HuaGongWeb.Admin
                     string Msg = context.Request["Msg"];
                     long CategoryId = Convert.ToInt32(context.Request["CategoryId"]);
 
-                    //获取浏览器上传的图片的信息
-                    HttpPostedFile productImg = context.Request.Files["ProductImage"];//对HttpPostFile查看定义可以看到他的几个方法
-                                                                                      //图片要保存到项目的文件夹或子文件夹中，这样才可以通过web来访问图片
-
-                    //注意不要这样写似，以后我们部署到其他的地方，那不就报错了吗
-                    //productImg.SaveAs(@"F:\ForGit\ASP.NET-yzkDemo\yzk\HuaGongWeb\uploadfile\");
-
-                    //获取当前项目的某个文件的全路径
-                    string filePath = context.Server.MapPath("~/uploadfile");//波浪线就代表当前项目的路径
-
-
-                    string sql = "update T_Products set Name=@Name,CategoryId=@CategoryId,Msg=@Msg where Id=@Id;";
-                    SqlParameter[] param =
+                    HttpPostedFile productImg = context.Request.Files["ProductImage"];
+                    if (productImg == null||productImg.ContentLength ==0)//用户没有修改图片，还是用之前的图片,即无需对图片路径更新
                     {
+                        string sql = "update T_Products set Name=@Name,CategoryId=@CategoryId,Msg=@Msg where Id=@Id;";
+                        SqlParameter[] param =
+                        {
                         new SqlParameter ("@Id",Id),
                         new SqlParameter ("@Name",Name),
                         new SqlParameter ("@Msg",Msg),
-                        new SqlParameter ("@CategoryId",CategoryId )
+                        new SqlParameter ("@CategoryId",CategoryId ),
+                       
+                        };
 
-                    };
-                    SqlHelper.ExecuteNonquery(sql, CommandType.Text, param);
+                        SqlHelper.ExecuteNonquery(sql, CommandType.Text, param);
 
-                    context.Response.Redirect("ProductList.ashx");
+                        context.Response.Redirect("ProductList.ashx");
+                    }
+                    else//用户修改了图片
+                    {
+                        string fileName = DateTime.Now.ToString("yyyyMMddHHmmssfffffff") + Path.GetExtension(productImg.FileName);
+                        string filePath = context.Server.MapPath("~/uploadfile");
+                        productImg.SaveAs(filePath + "/" + fileName);
+                        //undone:用户修改了图片没有实时的更新
+
+                        string sql = "update T_Products set Name=@Name,CategoryId=@CategoryId,Msg=@Msg ,ImagePath=@ImagePath where Id=@Id;";
+                        SqlParameter[] param =
+                        {
+                        new SqlParameter ("@Id",Id),
+                        new SqlParameter ("@Name",Name),
+                        new SqlParameter ("@Msg",Msg),
+                        new SqlParameter ("@CategoryId",CategoryId ),
+                        new SqlParameter ("@ImagePath","/uploadfile/"+fileName)
+                        };
+
+                        SqlHelper.ExecuteNonquery(sql, CommandType.Text, param);
+
+                        context.Response.Redirect("ProductList.ashx");
+                    }
+
+
                 }
 
 
@@ -84,7 +102,7 @@ namespace HuaGongWeb.Admin
             #region AddNew
             if (action == "AddNew")
             {
-                if (string.IsNullOrEmpty(context.Request["IsPostBack"]))//添加页面
+                if (string.IsNullOrEmpty(context.Request["IsPostBack"]))//添加的显示页面
                 {
                     string sql = "select * from T_ProductCategories";
                     DataTable dtCategory = SqlHelper.GetDataTable(sql, CommandType.Text);
@@ -102,13 +120,28 @@ namespace HuaGongWeb.Admin
                     string Msg = context.Request["Msg"];
                     long CategoryId = Convert.ToInt32(context.Request["CategoryId"]);
 
-                    string sql = "insert into T_Products (Name,CategoryId,Msg) values(@Name,@CategoryId,@Msg);";
+                    //获取浏览器上传的图片的信息
+                    HttpPostedFile productImg = context.Request.Files["ProductImage"];//对HttpPostFile查看定义可以看到他的几个方法
+
+                    //文件名--注意这里因为是后台admin上传文件，所以我们使用当前时间命名文件名，用户上传文件一般是使用GUID来命名
+                    string fileName = DateTime.Now.ToString("yyyyMMddHHmmssfffffff") + Path.GetExtension(productImg.FileName);
+
+                    //图片要保存到项目的文件夹或子文件夹中，这样才可以通过web来访问图片
+                    //注意不要这样写似，以后我们部署到其他的地方，那不就报错了吗
+                    //productImg.SaveAs(@"F:\ForGit\ASP.NET-yzkDemo\yzk\HuaGongWeb\uploadfile\");
+
+                    //获取当前项目的uploadfile文件夹的全路径
+                    string filePath = context.Server.MapPath("~/uploadfile");//波浪线就代表当前项目的路径
+                    productImg.SaveAs(filePath + "/" + fileName);//注意那个"/"
+
+                    string sql = "insert into T_Products (Name,CategoryId,Msg,ImagePath) values(@Name,@CategoryId,@Msg,@ImagePath);";
                     SqlParameter[] param =
                     {
 
                         new SqlParameter ("@Name",Name),
                         new SqlParameter ("@Msg",Msg),
-                        new SqlParameter ("@CategoryId",CategoryId )
+                        new SqlParameter ("@CategoryId",CategoryId ),
+                        new SqlParameter ("@ImagePath","/uploadfile/" +fileName )
 
                     };
                     SqlHelper.ExecuteNonquery(sql, CommandType.Text, param);
