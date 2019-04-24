@@ -10,7 +10,7 @@
         #end
     </tbody>
 </table>
-<!--#foreach($page in $Model.PageData)
-<a href="$page.Href">$page.Title</a>
+#foreach($page in $Model.Page)
+<a href="$page.Href">$page.PageName</a>
 #end
-#parse("Admin/Foot.html")-->
+#parse("Admin/Foot.html")
