@@ -312,6 +312,9 @@
       <DependentUpon>Index.ashx</DependentUpon>
     </Compile>
     <Compile Include="NVelocityHelper.cs" />
+    <Compile Include="ProductCommentAJAX.ashx.cs">
+      <DependentUpon>ProductCommentAJAX.ashx</DependentUpon>
+    </Compile>
     <Compile Include="ProductList.ashx.cs">
       <DependentUpon>ProductList.ashx</DependentUpon>
     </Compile>
@@ -328,6 +331,7 @@
     <Content Include="Admin\ProductList.ashx" />
     <Content Include="Admin\ProductEdit.ashx" />
     <Content Include="scripts\ckeditor\.htaccess" />
+    <Content Include="ProductCommentAJAX.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
