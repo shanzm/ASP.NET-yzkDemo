@@ -14,18 +14,17 @@
                     <span class="disabled">&nbsp;&lt;&lt;&nbsp;</span>
                     <span class="disabled">&nbsp;&lt;&nbsp;</span>
                     #foreach($page in $Model.PageData)
-                    #if($page.pageName==$Model.PageNum)
-                    <span class="current">$page.pageName</span>
-                    #else
-                    <a href="$page.Href">$page.pageName</a>
-                    #end
+                       #if($page.pageName==$Model.PageNum)
+                       <span class="current">$page.pageName</span>
+                       #else
+                       <a href="$page.Href">$page.pageName</a>
+                       #end
                     #end
 
                     #if($Model.PageNum< $Model.PageCount)
-                    #set($nextPageNum=$Model.PageNum+1)
-                    <a href="ProductList.ashx?PageNum=$nextPageNum">下一页</a>
+                       #set($nextPageNum=$Model.PageNum+1)
+                       <a href="ProductList.ashx?PageNum=$nextPageNum">下一页</a>
                     #end
-
                     <a href="ProductList.ashx?PageNum=$Model.PageCount">尾页</a>
                 </div>
             </div>

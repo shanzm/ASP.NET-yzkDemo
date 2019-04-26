@@ -1,9 +1,5 @@
 F:\ForGit\ASP.NET-yzkDemo\yzk\Register\bin\Register.dll.config
 F:\ForGit\ASP.NET-yzkDemo\yzk\Register\bin\Register.dll
 F:\ForGit\ASP.NET-yzkDemo\yzk\Register\bin\Register.pdb
-F:\ForGit\ASP.NET-yzkDemo\yzk\Register\bin\NVelocity.dll
-F:\ForGit\ASP.NET-yzkDemo\yzk\Register\bin\NVelocity.pdb
-F:\ForGit\ASP.NET-yzkDemo\yzk\Register\bin\NVelocity.xml
-F:\ForGit\ASP.NET-yzkDemo\yzk\Register\obj\Debug\Register.csprojResolveAssemblyReference.cache
 F:\ForGit\ASP.NET-yzkDemo\yzk\Register\obj\Debug\Register.dll
 F:\ForGit\ASP.NET-yzkDemo\yzk\Register\obj\Debug\Register.pdb

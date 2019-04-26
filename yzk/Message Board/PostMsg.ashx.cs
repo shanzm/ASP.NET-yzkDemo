@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
-namespace Register
+namespace MessageBoard
 {
     /// <summary>
     /// PostMsg 的摘要说明

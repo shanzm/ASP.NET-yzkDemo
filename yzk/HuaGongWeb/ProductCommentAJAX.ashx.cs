@@ -13,7 +13,26 @@ namespace HuaGongWeb
 
         public void ProcessRequest(HttpContext context)
         {
-            context.Response.ContentType = "html/plain";
+            context.Response.ContentType = "text/plain";
+
+            string action = context.Request["Action"];
+
+            if (action=="PostComment")//用户提交评论
+            {
+                int proudctId = Convert.ToInt32(context.Request["ProductId"]);
+                string title = context.Request["Title"];
+                string msg = context.Request["Msg"];
+                
+                //undone:对用户的评论进行审查
+
+
+
+            }
+
+            else if (action=="Load")//展示评论
+            {
+
+            }
 
             int Id = Convert.ToInt32(context.Request["Id"]);
 

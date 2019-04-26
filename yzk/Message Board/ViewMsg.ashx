@@ -1,1 +1,1 @@
-﻿<%@ WebHandler Language="C#" CodeBehind="ViewMsg.ashx.cs" Class="Message_Board.ViewMsg" %>
+﻿<%@ WebHandler Language="C#" CodeBehind="ViewMsg.ashx.cs" Class="MessageBoard.ViewMsg" %>

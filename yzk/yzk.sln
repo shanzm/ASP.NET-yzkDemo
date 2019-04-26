@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CURD", "CURD\CURD.csproj", "{7A3A3D54-ADBC-4894-980E-96824B702F53}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Message Board", "Message Board\Message Board.csproj", "{3D601D42-75FC-494A-94D9-5D4F3A14A944}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBoard", "Message Board\MessageBoard.csproj", "{3D601D42-75FC-494A-94D9-5D4F3A14A944}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewVideo", "ViewVideo\ViewVideo.csproj", "{993F97F5-6CAD-438E-9035-E3245DEEA87F}"
 EndProject
