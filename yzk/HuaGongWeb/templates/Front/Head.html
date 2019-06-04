@@ -42,6 +42,7 @@
                         公司历史</a></li><li><a href="single.html" title="联系我们">联系我们</a></li></ul>
                 </li>
                 <li><a href="ProductList.ashx" title="产品展示"><span>产品展示</span></a><ul class="menulevel">
+                    <!--注意，每一个需要使用Head.html页面的的页面，都需要给一个产品分类的数据，为了省事，我们在CommonHelper.cs封装一个查询产品分类的函数，在其他页面直接调用即可-->
                 #foreach($pc in $Model.ProductCategories)
                     <li><a href="ProductList.ashx?CategoryId=$pc.Id" title="$pc.Name">$pc.Name</a></li>
                 #end

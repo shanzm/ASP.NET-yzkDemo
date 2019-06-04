@@ -3,3 +3,4 @@ F:\ForGit\ASP.NET-yzkDemo\yzk\Message Board\bin\Message Board.dll
 F:\ForGit\ASP.NET-yzkDemo\yzk\Message Board\bin\Message Board.pdb
 F:\ForGit\ASP.NET-yzkDemo\yzk\Message Board\obj\Debug\Message Board.dll
 F:\ForGit\ASP.NET-yzkDemo\yzk\Message Board\obj\Debug\Message Board.pdb
+F:\ForGit\ASP.NET-yzkDemo\yzk\Message Board\obj\Debug\MessageBoard.csprojResolveAssemblyReference.cache

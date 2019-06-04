@@ -287,11 +287,11 @@
     <Content Include="templates\Admin\Foot.html" />
     <Content Include="templates\Admin\Head.html" />
     <Content Include="templates\Admin\Login.htm" />
-    <Content Include="templates\Admin\ProductCategoryEdit.htm" />
-    <Content Include="templates\Admin\ProductCategoryList.htm" />
+    <Content Include="templates\Admin\ProductCategoryEdit.html" />
+    <Content Include="templates\Admin\ProductCategoryList.html" />
     <Content Include="templates\Admin\ProductEdit.html" />
     <Content Include="templates\Admin\ProductList.html" />
-    <Content Include="templates\Admin\Settings.htm" />
+    <Content Include="templates\Admin\Settings.html" />
     <Content Include="templates\Admin\SysUserEdit.htm" />
     <Content Include="templates\Admin\SysUserList.htm" />
     <Content Include="templates\Front\Foot.html" />
@@ -308,6 +308,10 @@
     <Compile Include="Admin\ProductList.ashx.cs">
       <DependentUpon>ProductList.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Settings.ashx.cs">
+      <DependentUpon>Settings.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="CommonHelper.cs" />
     <Compile Include="Index.ashx.cs">
       <DependentUpon>Index.ashx</DependentUpon>
     </Compile>
@@ -332,6 +336,7 @@
     <Content Include="Admin\ProductEdit.ashx" />
     <Content Include="scripts\ckeditor\.htaccess" />
     <Content Include="ProductCommentAJAX.ashx" />
+    <Content Include="Admin\Settings.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

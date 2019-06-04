@@ -23,7 +23,10 @@ namespace HuaGongWeb
 
             DataTable dtProduct = SqlHelper.GetDataTable(sql, CommandType.Text, param);
 
-            var data = new { Product = dtProduct.Rows[0]};
+            //获取配置数据
+            var Settings = CommonHelper.GetSettings();
+
+            var data = new { Product = dtProduct.Rows[0],Settings=Settings};
 
             string html = NVelocityHelper.RenderHtml("Front/ProductView.html", data);
             context.Response.Write(html);

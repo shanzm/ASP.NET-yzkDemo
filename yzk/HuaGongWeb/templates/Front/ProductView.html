@@ -29,7 +29,7 @@
             }
             else
             {
-                alert("服务器返回未知数据："+txt);
+                alert("服务器返回未知数据：" + txt);
             }
         });
     }
@@ -40,7 +40,7 @@
         {
             var comments = JSON.parse(txt);
             var ulComments = document.getElementById("ulComments");
-            ulComments.innerHTML = "";//先清除上次加载的内容
+            ulComments.innerHTML = "";//先清除上次加载的评论内容
             for (var i = 0; i < comments.length; i++)
             {
                 var comment = comments[i];
@@ -55,19 +55,19 @@
 <p><img src="$Model.Product.ImagePath" height="200" width="200" /></p>
 $Model.Product.Msg
 
-<ul id="ulComments">
-</ul>
+<ul id="ulComments"></ul>
+
 <script type="text/javascript">
-    LoadComments(); 
+    LoadComments();
 </script>
 <p>
-标题：<input type="text" id="CommentTitle" />
+    标题：<input type="text" id="CommentTitle" />
 </p>
 <p>
-内容：<textarea rows="5" cols="30" id="CommentMsg" ></textarea>
+    内容：<textarea rows="5" cols="30" id="CommentMsg"></textarea>
 </p>
 <p>
-标题：<input type="submit" value="发表评论" onclick="postComment()" />
+    标题：<input type="submit" value="发表评论" onclick="postComment()" />
 </p>
 
 #parse("Front/Foot.html")

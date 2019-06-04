@@ -51,18 +51,20 @@ namespace HuaGongWeb.Admin
                     string Name = context.Request["Name"];
                     string Msg = context.Request["Msg"];
                     long CategoryId = Convert.ToInt32(context.Request["CategoryId"]);
+                    bool IsRecommend = context.Request["IsRecommend"] == "on" ? true : false;//复选框选中默认返回的是字符串"on"
 
                     HttpPostedFile productImg = context.Request.Files["ProductImage"];
-                    if (productImg == null||productImg.ContentLength ==0)//用户没有修改图片，还是用之前的图片,即无需对图片路径更新
+                    if (productImg == null || productImg.ContentLength == 0)//用户没有修改图片，还是用之前的图片,即无需对图片路径更新
                     {
-                        string sql = "update T_Products set Name=@Name,CategoryId=@CategoryId,Msg=@Msg where Id=@Id;";
+                        string sql = "update T_Products set Name=@Name,CategoryId=@CategoryId,Msg=@Msg ,IsRecommend=@isRecommend where Id=@Id;";
                         SqlParameter[] param =
                         {
                         new SqlParameter ("@Id",Id),
                         new SqlParameter ("@Name",Name),
                         new SqlParameter ("@Msg",Msg),
                         new SqlParameter ("@CategoryId",CategoryId ),
-                       
+                        new SqlParameter ("@IsRecommend",IsRecommend )
+
                         };
 
                         SqlHelper.ExecuteNonquery(sql, CommandType.Text, param);
@@ -76,14 +78,15 @@ namespace HuaGongWeb.Admin
                         productImg.SaveAs(filePath + "/" + fileName);
                         //undone:用户修改了图片没有实时的更新
 
-                        string sql = "update T_Products set Name=@Name,CategoryId=@CategoryId,Msg=@Msg ,ImagePath=@ImagePath where Id=@Id;";
+                        string sql = "update T_Products set Name=@Name,CategoryId=@CategoryId,Msg=@Msg ,IsRecommend=@IsRecommend,ImagePath=@ImagePath where Id=@Id;";
                         SqlParameter[] param =
                         {
                         new SqlParameter ("@Id",Id),
                         new SqlParameter ("@Name",Name),
                         new SqlParameter ("@Msg",Msg),
                         new SqlParameter ("@CategoryId",CategoryId ),
-                        new SqlParameter ("@ImagePath","/uploadfile/"+fileName)
+                        new SqlParameter ("@ImagePath","/uploadfile/"+fileName),
+                        new SqlParameter ("@IsRecommend",IsRecommend )
                         };
 
                         SqlHelper.ExecuteNonquery(sql, CommandType.Text, param);
@@ -172,10 +175,10 @@ namespace HuaGongWeb.Admin
             }
             #endregion
 
-            else//bug:为什么在显示页面点击编辑按钮之后，显示类待编辑的数据，最后还显示了 action错误：Edit
-            {
-                context.Response.Write("action错误：" + action);
-            }
+            //else//bug:为什么在显示页面点击编辑按钮之后，显示类待编辑的数据，最后还显示了 action错误：Edit
+            //{
+            //    context.Response.Write("action错误：" + action);
+            //}
 
         }
 

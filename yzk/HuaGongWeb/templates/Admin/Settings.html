@@ -1,0 +1,18 @@
+﻿#parse("Admin/Head.html")
+<form method="post" action="Settings.ashx">
+    <table>
+        <tbody>
+            <tr><td>网站名称</td><td><input type="text" name="SiteName" value="$Model.SiteName" /></td></tr>
+            <tr><td>公司网址</td><td><input type="text" name="SiteURL" value="$Model.SiteURL" /></td></tr>
+            <tr><td>公司地址</td><td><input type="text" name="Address" value="$Model.Address" /></td></tr>
+            <tr><td>邮编</td><td><input type="text" name="PostCode" value="$Model.PostCode" /></td></tr>
+            <tr><td>联系人</td><td><input type="text" name="ContactPerson" value="$Model.ContactPerson" /></td></tr>
+            <tr><td>电话</td><td><input type="text" name="TelPhone" value="$Model.TelPhone" /></td></tr>
+            <tr><td>传真</td><td><input type="text" name="Fax" value="$Model.Fax" /></td></tr>
+            <tr><td>手机</td><td><input type="text" name="Mobile" value="$Model.Mobile" /></td></tr>
+            <tr><td>邮箱</td><td><input type="text" name="Email" value="$Model.Email" /></td></tr>
+            <tr><td></td><td><input type="submit" name="Save" value="保存" /></td></tr>
+        </tbody>
+    </table>
+</form>
+#parse("Admin/Head.html")

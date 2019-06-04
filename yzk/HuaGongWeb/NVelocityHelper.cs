@@ -8,16 +8,17 @@ using System.Web;
 
 namespace HuaGongWeb
 {
+
     public class NVelocityHelper
     {
-        
+        /// 注意，按理说我们应该把这个方法，封装在CommonHelper.cs 中
         /// <summary>
         /// 用数据date填充模版template中的Date，生成html
         /// </summary>
         /// <param name="templatesName">模板文件</param>
         /// <param name="data">传递给模版的数据</param>
         /// <returns>html</returns>
-        public  static string RenderHtml(string templateName, object data)
+        public static string RenderHtml(string templateName, object data)
         {
             VelocityEngine vltEngine = new VelocityEngine();
             vltEngine.SetProperty(RuntimeConstants.RESOURCE_LOADER, "file");
@@ -27,13 +28,13 @@ namespace HuaGongWeb
             VelocityContext vltContext = new VelocityContext();
 
             vltContext.Put("Model", data);//设置参数，在模板中可以通过$data来引用
-         
+
             Template vltTemplate = vltEngine.GetTemplate(templateName);
             System.IO.StringWriter vltWriter = new System.IO.StringWriter();
             vltTemplate.Merge(vltContext, vltWriter);
 
             string html = vltWriter.GetStringBuilder().ToString();
-            
+
             return html;
         }
     }
