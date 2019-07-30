@@ -286,7 +286,7 @@
     <Content Include="single.html" />
     <Content Include="templates\Admin\Foot.html" />
     <Content Include="templates\Admin\Head.html" />
-    <Content Include="templates\Admin\Login.htm" />
+    <Content Include="templates\Admin\Login.html" />
     <Content Include="templates\Admin\ProductCategoryEdit.html" />
     <Content Include="templates\Admin\ProductCategoryList.html" />
     <Content Include="templates\Admin\ProductEdit.html" />
@@ -302,6 +302,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\Login.ashx.cs">
+      <DependentUpon>Login.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\ProductEdit.ashx.cs">
       <DependentUpon>ProductEdit.ashx</DependentUpon>
     </Compile>
@@ -337,6 +340,7 @@
     <Content Include="scripts\ckeditor\.htaccess" />
     <Content Include="ProductCommentAJAX.ashx" />
     <Content Include="Admin\Settings.ashx" />
+    <Content Include="Admin\Login.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

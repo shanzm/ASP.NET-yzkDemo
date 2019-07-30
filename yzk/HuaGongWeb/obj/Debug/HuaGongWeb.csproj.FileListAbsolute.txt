@@ -6,3 +6,4 @@ F:\ForGit\ASP.NET-yzkDemo\yzk\HuaGongWeb\bin\NVelocity.pdb
 F:\ForGit\ASP.NET-yzkDemo\yzk\HuaGongWeb\bin\NVelocity.xml
 F:\ForGit\ASP.NET-yzkDemo\yzk\HuaGongWeb\obj\Debug\HuaGongWeb.dll
 F:\ForGit\ASP.NET-yzkDemo\yzk\HuaGongWeb\obj\Debug\HuaGongWeb.pdb
+F:\ForGit\ASP.NET-yzkDemo\yzk\HuaGongWeb\obj\Debug\HuaGongWeb.csprojResolveAssemblyReference.cache
